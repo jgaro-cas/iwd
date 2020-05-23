@@ -1,0 +1,128 @@
+@startuml
+storage Person
+card Name
+card Birthdate
+
+storage Contact
+card Phone
+card Address
+card Mail
+
+storage City
+card Name_city
+card Postal_Number
+
+storage Volunteer
+card Tshirt_Size
+
+storage Organizer
+
+storage Organization
+card Organization_Name
+
+storage Partner
+
+storage Supplyer
+
+storage Dicastery
+card Needs_of_Volunteers
+card Needs_of_Material
+
+storage Bar
+card Bar_Name
+
+storage Public_Bar
+storage Lodge_Bar
+storage Backstage_Bar
+
+storage Location
+
+storage Public_Side
+
+storage Restricted_Side
+
+storage Beverage
+card Name_Bev
+card Name_Complement
+card Buy_Price
+card Buy_Volume
+card Sell_Price
+card Sell_Volume
+
+storage Alcool
+
+storage Mineral
+
+storage Brand
+
+storage Material
+
+storage Electricity
+
+storage Cooling
+
+storage Service
+
+storage Cleaning
+
+storage Financial
+
+storage Budget
+
+storage Event_Budg
+
+storage Dicastery_Budg
+
+
+Person --> Name
+Person --> Birthdate
+Person --> Contact : has a
+Person --> Volunteer : Subclass
+Person --> Organizer : Subclass
+Person --> Partner : Represent
+Person --> Supplyer : Represent
+Person --> Bar : Manage
+
+Organization --> Organization_Name
+Organization --> City : Is located in
+Organization --> Partner : Subclass
+Organization --> Supplyer : Subclass
+
+
+Contact --> Address
+Contact --> Mail
+Contact --> Phone
+Contact --> City : Live in
+
+City --> Name_city
+City --> Postal_Number
+
+Volunteer --> Tshirt_Size
+Volunteer --> Dicastery : work for
+
+Dicastery --> Needs_of_Volunteers
+Dicastery --> Needs_of_Material
+
+Organizer --> Dicastery : Operate
+
+Location --> Public_Side : Subclass
+Location --> Restricted_Side : Subclass
+
+Bar --> Bar_Name
+Bar --> Location : located in
+
+Bar --> Public_Bar : Subclass
+Bar --> Lodge_Bar : Subclass
+Bar --> Backstage_Bar : Subclass
+
+Backstage_Bar --> Restricted_Side : Is in
+
+Beverage --> Name_Bev
+Beverage --> Name_Complement
+Beverage --> Buy_Price
+Beverage --> Buy_Volume
+Beverage --> Sell_Price
+Beverage --> Sell_Volume
+Beverage --> Alcool : Subclass
+Beverage --> Mineral : Subclass
+@enduml
