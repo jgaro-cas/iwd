@@ -1,0 +1,447 @@
+@prefix : <http://cas-dar/IWD/JGA/> .
+@prefix jga: <http://cas-dar/IWD/JGA/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://cas-dar/IWD/JGA/> .
+
+<http://cas-dar/IWD/JGA/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://cas-dar/IWD/JGA/contactedBy
+jga:contactedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain jga:Person ;
+                rdfs:range jga:Contact .
+
+
+###  http://cas-dar/IWD/JGA/isIn
+jga:isIn rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf jga:situatedIn ;
+         rdfs:domain jga:LimitedBar ,
+                     jga:PublicBar ;
+         rdfs:range jga:PublicArea ,
+                    jga:RestrictedArea .
+
+
+###  http://cas-dar/IWD/JGA/locatedIn
+jga:locatedIn rdf:type owl:ObjectProperty ;
+              rdfs:domain jga:Contact ;
+              rdfs:range jga:City .
+
+
+###  http://cas-dar/IWD/JGA/manages
+jga:manages rdf:type owl:ObjectProperty ;
+            rdfs:domain jga:Organizer ;
+            rdfs:range jga:Dicastery .
+
+
+###  http://cas-dar/IWD/JGA/organizes
+jga:organizes rdf:type owl:ObjectProperty ;
+              rdfs:domain jga:Organizer ;
+              rdfs:range jga:Bar .
+
+
+###  http://cas-dar/IWD/JGA/sells
+jga:sells rdf:type owl:ObjectProperty ;
+          rdfs:domain jga:Bar ;
+          rdfs:range jga:Beverage .
+
+
+###  http://cas-dar/IWD/JGA/situatedIn
+jga:situatedIn rdf:type owl:ObjectProperty ;
+               rdfs:domain jga:Bar ;
+               rdfs:range jga:Location .
+
+
+###  http://cas-dar/IWD/JGA/supplies
+jga:supplies rdf:type owl:ObjectProperty ;
+             rdfs:domain jga:Partner ;
+             rdfs:range jga:Beverage .
+
+
+###  http://cas-dar/IWD/JGA/worksFor
+jga:worksFor rdf:type owl:ObjectProperty ;
+             rdfs:domain jga:Volunteer ;
+             rdfs:range jga:Dicastery .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://cas-dar/IWD/JGA/Status
+jga:Status rdf:type owl:DatatypeProperty ;
+           rdfs:domain jga:Organizer ;
+           rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/accessLevel
+jga:accessLevel rdf:type owl:DatatypeProperty ;
+                rdfs:domain jga:RestrictedArea ;
+                rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/address
+jga:address rdf:type owl:DatatypeProperty ;
+            rdfs:domain jga:Contact ;
+            rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/birthDate
+jga:birthDate rdf:type owl:DatatypeProperty ;
+              rdfs:domain jga:Volunteer ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://cas-dar/IWD/JGA/capacity
+jga:capacity rdf:type owl:DatatypeProperty ;
+             rdfs:domain jga:Bar ;
+             rdfs:range xsd:integer .
+
+
+###  http://cas-dar/IWD/JGA/employer
+jga:employer rdf:type owl:DatatypeProperty ;
+             rdfs:domain jga:Partner ;
+             rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/firstName
+jga:firstName rdf:type owl:DatatypeProperty ;
+              rdfs:domain jga:Person ;
+              rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/lastName
+jga:lastName rdf:type owl:DatatypeProperty ;
+             rdfs:domain jga:Person ;
+             rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/mail
+jga:mail rdf:type owl:DatatypeProperty ;
+         rdfs:domain jga:Contact ;
+         rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/name
+jga:name rdf:type owl:DatatypeProperty ;
+         rdfs:domain jga:Bar ,
+                     jga:Beverage ,
+                     jga:City ,
+                     jga:Location ;
+         rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/needsOfMaterial
+jga:needsOfMaterial rdf:type owl:DatatypeProperty ;
+                    rdfs:domain jga:Dicastery ;
+                    rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/needsOfVolunteer
+jga:needsOfVolunteer rdf:type owl:DatatypeProperty ;
+                     rdfs:domain jga:Dicastery ;
+                     rdfs:range xsd:integer .
+
+
+###  http://cas-dar/IWD/JGA/partnershipType
+jga:partnershipType rdf:type owl:DatatypeProperty ;
+                    rdfs:domain jga:Partner ;
+                    rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/phone
+jga:phone rdf:type owl:DatatypeProperty ;
+          rdfs:domain jga:Contact ;
+          rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/postalNumber
+jga:postalNumber rdf:type owl:DatatypeProperty ;
+                 rdfs:domain jga:City ;
+                 rdfs:range xsd:integer .
+
+
+###  http://cas-dar/IWD/JGA/secuGuardNbr
+jga:secuGuardNbr rdf:type owl:DatatypeProperty ;
+                 rdfs:domain jga:RestrictedArea ;
+                 rdfs:range xsd:integer .
+
+
+###  http://cas-dar/IWD/JGA/tshirtSize
+jga:tshirtSize rdf:type owl:DatatypeProperty ;
+               rdfs:domain jga:Volunteer ;
+               rdfs:range xsd:string .
+
+
+###  http://cas-dar/IWD/JGA/withAlcool
+jga:withAlcool rdf:type owl:DatatypeProperty ;
+               rdfs:domain jga:Beverage ;
+               rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://cas-dar/IWD/JGA/Bar
+jga:Bar rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/Beverage
+jga:Beverage rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/City
+jga:City rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/Contact
+jga:Contact rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/Dicastery
+jga:Dicastery rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/LimitedBar
+jga:LimitedBar rdf:type owl:Class ;
+               rdfs:subClassOf jga:Bar .
+
+
+###  http://cas-dar/IWD/JGA/Location
+jga:Location rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/Organizer
+jga:Organizer rdf:type owl:Class ;
+              rdfs:subClassOf jga:Person .
+
+
+###  http://cas-dar/IWD/JGA/Partner
+jga:Partner rdf:type owl:Class ;
+            rdfs:subClassOf jga:Person .
+
+
+###  http://cas-dar/IWD/JGA/Person
+jga:Person rdf:type owl:Class .
+
+
+###  http://cas-dar/IWD/JGA/PublicArea
+jga:PublicArea rdf:type owl:Class ;
+               rdfs:subClassOf jga:Location .
+
+
+###  http://cas-dar/IWD/JGA/PublicBar
+jga:PublicBar rdf:type owl:Class ;
+              rdfs:subClassOf jga:Bar .
+
+
+###  http://cas-dar/IWD/JGA/RestrictedArea
+jga:RestrictedArea rdf:type owl:Class ;
+                   rdfs:subClassOf jga:Location .
+
+
+###  http://cas-dar/IWD/JGA/Volunteer
+jga:Volunteer rdf:type owl:Class ;
+              rdfs:subClassOf jga:Person .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://cas-dar/IWD/JGA/ABE
+jga:ABE rdf:type owl:NamedIndividual ,
+                 jga:Partner ;
+        jga:supplies jga:Beer ;
+        jga:employer "Feldschloschen" ;
+        jga:firstName "Alain" ;
+        jga:lastName "Berlens" ;
+        jga:partnershipType "Supplyer" .
+
+
+###  http://cas-dar/IWD/JGA/Back
+jga:Back rdf:type owl:NamedIndividual ,
+                  jga:RestrictedArea ;
+         jga:accessLevel "Badge noir" ;
+         jga:name "Arrière scène" ;
+         jga:secuGuardNbr 5 .
+
+
+###  http://cas-dar/IWD/JGA/Backstage
+jga:Backstage rdf:type owl:NamedIndividual ,
+                       jga:LimitedBar ;
+              jga:isIn jga:Back ;
+              jga:sells jga:Water ;
+              jga:capacity 10 ;
+              jga:name "Back" .
+
+
+###  http://cas-dar/IWD/JGA/Beer
+jga:Beer rdf:type owl:NamedIndividual ,
+                  jga:Beverage ;
+         jga:name "Cardinal Blonde" ;
+         jga:withAlcool "true"^^xsd:boolean .
+
+
+###  http://cas-dar/IWD/JGA/Castle
+jga:Castle rdf:type owl:NamedIndividual ,
+                    jga:PublicBar ;
+           jga:isIn jga:Inner_Run ;
+           jga:sells jga:Water ;
+           jga:capacity 250 ;
+           jga:name "Château" .
+
+
+###  http://cas-dar/IWD/JGA/Contact_JGA
+jga:Contact_JGA rdf:type owl:NamedIndividual ,
+                         jga:Contact ;
+                jga:locatedIn jga:Delley ;
+                jga:address "Route de Protalban 2" ;
+                jga:mail "jerome.garo@free4style.com" ;
+                jga:phone "079 740 11 43" .
+
+
+###  http://cas-dar/IWD/JGA/Contact_NBE
+jga:Contact_NBE rdf:type owl:NamedIndividual ,
+                         jga:Contact ;
+                jga:locatedIn jga:Estavayer ;
+                jga:address "Route de la Rochette" ;
+                jga:mail "nico.baech@free4style.com" ;
+                jga:phone "079 999 99 99" .
+
+
+###  http://cas-dar/IWD/JGA/DSC
+jga:DSC rdf:type owl:NamedIndividual ,
+                 jga:Volunteer ;
+        jga:worksFor <http://cas-dar/IWD/JGA/Art&VIP> ;
+        jga:birthDate "1986-01-01T00:00:00"^^xsd:dateTime ;
+        jga:firstName "Damien" ;
+        jga:lastName "Scheurer" ;
+        jga:tshirtSize "M" .
+
+
+###  http://cas-dar/IWD/JGA/Delley
+jga:Delley rdf:type owl:NamedIndividual ,
+                    jga:City ;
+           jga:name "Delley" ;
+           jga:postalNumber 1567 .
+
+
+###  http://cas-dar/IWD/JGA/Estavayer
+jga:Estavayer rdf:type owl:NamedIndividual ,
+                       jga:City ;
+              jga:name "Estavayer-le-Lac" ;
+              jga:postalNumber 1470 .
+
+
+###  http://cas-dar/IWD/JGA/Inner_Run
+jga:Inner_Run rdf:type owl:NamedIndividual ,
+                       jga:PublicArea ;
+              jga:name "Coure intétieure" .
+
+
+###  http://cas-dar/IWD/JGA/JGA
+jga:JGA rdf:type owl:NamedIndividual ,
+                 jga:Organizer ;
+        jga:contactedBy jga:Contact_JGA ;
+        jga:manages <http://cas-dar/IWD/JGA/F&B> ;
+        jga:Status "F&B Resp" ;
+        jga:firstName "Jérôme" ;
+        jga:lastName "Garo" .
+
+
+###  http://cas-dar/IWD/JGA/Lake
+jga:Lake rdf:type owl:NamedIndividual ,
+                  jga:PublicBar ;
+         jga:isIn jga:Lake_Side ;
+         jga:sells jga:Beer ;
+         jga:capacity 180 ;
+         jga:name "Lac" .
+
+
+###  http://cas-dar/IWD/JGA/Lake_Side
+jga:Lake_Side rdf:type owl:NamedIndividual ,
+                       jga:PublicArea ;
+              jga:name "Bordu" .
+
+
+###  http://cas-dar/IWD/JGA/Lodges
+jga:Lodges rdf:type owl:NamedIndividual ,
+                    jga:RestrictedArea ;
+           jga:accessLevel "Badge rouge" ;
+           jga:name "Loges" ;
+           jga:secuGuardNbr 7 .
+
+
+###  http://cas-dar/IWD/JGA/MPR
+jga:MPR rdf:type owl:NamedIndividual ,
+                 jga:Volunteer ;
+        jga:worksFor <http://cas-dar/IWD/JGA/F&B> ;
+        jga:birthDate "1985-01-01T00:00:00"^^xsd:dateTime ;
+        jga:firstName "Michael" ;
+        jga:lastName "Premo" ;
+        jga:tshirtSize "L" .
+
+
+###  http://cas-dar/IWD/JGA/NBE
+jga:NBE rdf:type owl:NamedIndividual ,
+                 jga:Organizer ;
+        jga:contactedBy jga:Contact_NBE ;
+        jga:manages <http://cas-dar/IWD/JGA/Art&VIP> ;
+        jga:Status "Welcome artist Resp" ;
+        jga:firstName "Nico" ;
+        jga:lastName "Baech" .
+
+
+###  http://cas-dar/IWD/JGA/RCH
+jga:RCH rdf:type owl:NamedIndividual ,
+                 jga:Partner ;
+        jga:supplies jga:Water ;
+        jga:employer "Chardonnens Boissons" ;
+        jga:firstName "Richard" ;
+        jga:lastName "Chardonnens" ;
+        jga:partnershipType "Sponsor" .
+
+
+###  http://cas-dar/IWD/JGA/VIP
+jga:VIP rdf:type owl:NamedIndividual ,
+                 jga:LimitedBar ;
+        jga:isIn jga:Lodges ;
+        jga:sells jga:Beer ;
+        jga:capacity 25 ;
+        jga:name "Loge" .
+
+
+###  http://cas-dar/IWD/JGA/Water
+jga:Water rdf:type owl:NamedIndividual ,
+                   jga:Beverage ;
+          jga:name "Valser Classic" ;
+          jga:withAlcool "false"^^xsd:boolean .
+
+
+###  http://cas-dar/IWD/JGA/Art&VIP
+<http://cas-dar/IWD/JGA/Art&VIP> rdf:type owl:NamedIndividual ,
+                                          jga:Dicastery ;
+                                 jga:organizes jga:Backstage ,
+                                               jga:VIP ;
+                                 jga:needsOfMaterial "Sofa" ;
+                                 jga:needsOfVolunteer 3 .
+
+
+###  http://cas-dar/IWD/JGA/F&B
+<http://cas-dar/IWD/JGA/F&B> rdf:type owl:NamedIndividual ,
+                                      jga:Dicastery ;
+                             jga:organizes jga:Castle ,
+                                           jga:Lake ;
+                             jga:needsOfMaterial "Truck" ;
+                             jga:needsOfVolunteer 25 .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
